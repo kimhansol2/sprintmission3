@@ -1,10 +1,10 @@
-PRODUCTS[
+export const PRODUCTS = [
   ({
     id: "08de6fbe-c931-440a-a5d3-399703ca4e72",
     name: "검은색 바지",
     description: "댄디한 기본 아이템",
     price: 89000,
-    tags: PANTS,
+    tags: "PANTS",
     createdAt: "2025-02-19T07:11:47.360Z",
     updatedAt: "2025-02-19T07:11:03.619Z",
   },
@@ -13,7 +13,7 @@ PRODUCTS[
     name: "스키니 청바지",
     description: "소녀시대 청바지",
     price: 120000,
-    tags: JEANS,
+    tags: "JEANS",
     createdAt: "2025-02-19T07:15:59.593Z",
     updatedAt: "2025-02-19T07:14:46.495Z",
   },
@@ -22,7 +22,7 @@ PRODUCTS[
     name: "흰색 블라우스",
     description: "직장인 필수템",
     price: 40000,
-    tags: BLOUSE,
+    tags: "BLOUSE",
     createdAt: "2025-02-19T07:17:42.163Z",
     updatedAt: "2025-02-19T07:16:02.148Z",
   },
@@ -31,7 +31,7 @@ PRODUCTS[
     name: "노란색 드레스",
     description: "김OO 연예인 착용",
     price: 150000,
-    tags: DRESS,
+    tags: "DRESS",
     createdAt: "2025-02-19T07:12:41.654Z",
     updatedAt: "2025-02-19T07:17:42.163Z",
   },
@@ -40,7 +40,7 @@ PRODUCTS[
     name: "검은색 블레이저 자켓",
     description: "두꺼운 소재",
     price: 200000,
-    tags: JACKET,
+    tags: "JACKET",
     createdAt: "2025-02-19T07:13:44.608Z",
     updatedAt: "2025-02-19T07:12:44.819Z",
   },
@@ -49,7 +49,7 @@ PRODUCTS[
     name: "빨간색 티셔츠",
     description: "2024년도 3월 최신 유행",
     price: 30000,
-    tags: TSHIRT,
+    tags: "TSHIRT",
     createdAt: "2025-02-19T07:11:47.360Z",
     updatedAt: "2025-02-19T07:10:20.527Z",
   },
@@ -58,13 +58,13 @@ PRODUCTS[
     name: "검은색 롱 코트",
     description: "드라마 도깨비에 나온 코트",
     price: 500000,
-    tags: COAT,
+    tags: "COAT",
     createdAt: "2025-02-19T07:14:41.444Z",
     updatedAt: "2025-02-19T07:13:52.331Z",
-  })
+  }),
 ];
 
-ARTICLES[
+export const ARTICLES = [
   ({
     id: "4543d1b4-19d7-4d4a-860c-5a76b459e538",
     title: "앞으로 나는",
@@ -85,5 +85,5 @@ ARTICLES[
     content: "쿠폰은 어디에 있음?",
     createdAt: "2025-02-19T07:20:20.316Z",
     updatedAt: "2025-02-19T07:20:00.384Z",
-  })
+  }),
 ];
