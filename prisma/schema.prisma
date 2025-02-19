@@ -12,3 +12,50 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Product {
+  id              String            @id @default(uuid())
+  name            String
+  description     String?
+  price           Float
+  tags            TAG
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  Product_Comment Product_Comment[]
+}
+
+model Article {
+  id        String            @id @default(uuid())
+  title     String
+  content   String
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+  Comment   Article_Comment[]
+}
+
+model Article_Comment {
+  id        String   @id @default(uuid())
+  content   String
+  createdAt DateTime @default(now())
+  article   Article? @relation(fields: [articleId], references: [id], onDelete: SetNull)
+  articleId String?
+}
+
+model Product_Comment {
+  id        String   @id @default(uuid())
+  content   String
+  createdAt DateTime @default(now())
+  product   Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  productId String?
+}
+
+enum TAG {
+  TSHIRT
+  BLOUSE
+  SHIRT
+  JEANS
+  DRESS
+  COAT
+  JACKET
+  PANTS
+}
