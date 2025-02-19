@@ -1,0 +1,10 @@
+###
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  name:"하얀색 티셔츠",
+  description:"반팔 티셔츠",
+  price:10000,
+  tags:"TSHIRT"
+}

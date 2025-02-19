@@ -1,5 +1,5 @@
 export const PRODUCTS = [
-  ({
+  {
     id: "08de6fbe-c931-440a-a5d3-399703ca4e72",
     name: "검은색 바지",
     description: "댄디한 기본 아이템",
@@ -61,11 +61,11 @@ export const PRODUCTS = [
     tags: "COAT",
     createdAt: "2025-02-19T07:14:41.444Z",
     updatedAt: "2025-02-19T07:13:52.331Z",
-  }),
+  },
 ];
 
 export const ARTICLES = [
-  ({
+  {
     id: "4543d1b4-19d7-4d4a-860c-5a76b459e538",
     title: "앞으로 나는",
     content: "이사이트만 이용할듯",
@@ -85,5 +85,5 @@ export const ARTICLES = [
     content: "쿠폰은 어디에 있음?",
     createdAt: "2025-02-19T07:20:20.316Z",
     updatedAt: "2025-02-19T07:20:00.384Z",
-  }),
+  },
 ];
