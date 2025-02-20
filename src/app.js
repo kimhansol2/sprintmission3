@@ -16,11 +16,18 @@ app.use((e, req, res, next) => {
   console.log(e);
   if (
     e.name === "StructError" ||
-    e instanceof Prisma.PrismaClientKnownRequestError ||
+    (e instanceof Prisma.PrismaClientKnownRequestError && e.code === "P2002") ||
     e instanceof PrismaClientValidationError
   ) {
     console.log("Error code", e.code);
     res.status(400).send({ message: e.message });
+  } else if (
+    e instanceof Prisma.PrismaClientKnownRequestError &&
+    e.code === "P2025"
+  ) {
+    res.status(404).send({ message: e.message });
+  } else {
+    res.status(500).send({ message: e.message });
   }
 });
 

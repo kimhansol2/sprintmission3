@@ -57,13 +57,15 @@ productRouter
 
 productRouter
   .route("/:id")
-  .get(async (req, res) => {
-    const { id } = req.params;
-    const product = await prisma.product.findUniqueOrThrow({
-      where: { id },
-    });
-    res.send(product);
-  })
+  .get(
+    asyncHandler(async (req, res) => {
+      const { id } = req.params;
+      const product = await prisma.product.findUniqueOrThrow({
+        where: { id },
+      });
+      res.send(product);
+    })
+  )
   .patch(
     asyncHandler(async (req, res) => {
       const { id } = req.params;
