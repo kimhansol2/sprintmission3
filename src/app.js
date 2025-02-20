@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import productRouter from "./routes/product.js";
+import articleRouter from "./routes/article.js";
 import { Prisma } from "@prisma/client";
 import asyncHandler from "./middlewares/async-handler.js";
 import { PrismaClientValidationError } from "@prisma/client/runtime/library";
@@ -10,6 +11,7 @@ dotenv.config();
 app.use(express.json());
 
 app.use("/products", productRouter);
+app.use("/articles", articleRouter);
 
 app.use((e, req, res, next) => {
   console.log("Error handleing");
