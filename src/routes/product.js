@@ -2,18 +2,21 @@ import express from "express";
 import { assert } from "superstruct";
 import { PrismaClient } from "@prisma/client";
 import { CreateProduct, PatchProduct } from "../structs.js";
+import asyncHandler from "../middlewares/async-handler.js";
 
 const prisma = new PrismaClient();
 const productRouter = express.Router();
 
 productRouter
   .route("/")
-  .post(async (req, res) => {
-    assert(req.body, CreateProduct);
-    const product = await prisma.product.create({ data: req.body });
+  .post(
+    asyncHandler(async (req, res) => {
+      assert(req.body, CreateProduct);
+      const product = await prisma.product.create({ data: req.body });
 
-    res.status(201).json({ message: product });
-  })
+      res.status(201).json({ message: product });
+    })
+  )
   .get(async (req, res) => {
     const { offset, limit, create = "recent", name, description } = req.query;
     let orderBy;
@@ -61,15 +64,17 @@ productRouter
     });
     res.send(product);
   })
-  .patch(async (req, res) => {
-    const { id } = req.params;
-    assert(req.body, PatchProduct);
-    const product = await prisma.product.update({
-      where: { id },
-      data: req.body,
-    });
-    res.send(product);
-  })
+  .patch(
+    asyncHandler(async (req, res) => {
+      const { id } = req.params;
+      assert(req.body, PatchProduct);
+      const product = await prisma.product.update({
+        where: { id },
+        data: req.body,
+      });
+      res.send(product);
+    })
+  )
   .delete(async (req, res) => {
     const { id } = req.params;
     const product = await prisma.product.delete({
