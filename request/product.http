@@ -13,7 +13,7 @@ Content-Type: application/json
 GET http://localhost:3000/products?offset=0&limit=10&name=검은색&description=댄디한
 
 ###
-GET http://localhost:3000/products/2afa799b-66a3-452c-b3ff-aa9b231f5e52
+GET http://localhost:3000/products/2afa799b-
 
 ###
 patch http://localhost:3000/products/0e5aa6e8-63da-4e2d-8036-ac58c5adb062

@@ -32,12 +32,13 @@ productRouter
     }
     const where = {};
     if (name) {
-      const nameTrimmed = name.replace(/\s+/g, " ").trim();
-      where.name = { contains: nameTrimmed, mode: "insensitive" };
+      where.name = { contains: decodeURIComponent(name), mode: "insensitive" };
     }
     if (description) {
-      const descriptionTrimmed = description.replace(/\s+/g, " ").trim();
-      where.description = { contains: descriptionTrimmed, mode: "insensitive" };
+      where.description = {
+        contains: decodeURIComponent(description),
+        mode: "insensitive",
+      };
     }
 
     const product = await prisma.product.findMany({
@@ -62,6 +63,13 @@ productRouter
       const { id } = req.params;
       const product = await prisma.product.findUniqueOrThrow({
         where: { id },
+        select: {
+          name: true,
+          description: true,
+          price: true,
+          tags: true,
+          createdAt: true,
+        },
       });
       res.send(product);
     })
