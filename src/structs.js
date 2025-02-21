@@ -29,3 +29,11 @@ export const CreateProduct = s.object({
 });
 
 export const PatchProduct = s.partial(CreateProduct);
+
+export const CreateComment = s.object({
+  content: s.size(s.string(), 1, 50),
+  articleId: s.optional(uuid),
+  productId: s.optional(uuid),
+});
+
+export const PatchComment = s.partial(CreateComment);
